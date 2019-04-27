@@ -1,5 +1,5 @@
-import abb
+from Robot_Controller import Robot_Controller
 
-R = abb.Robot(ip='127.0.0.1')
-R.set_joints([-90,0,0,0,0,0])
-R.close()
+R = Robot_Controller(ip='127.0.0.1')
+
+
