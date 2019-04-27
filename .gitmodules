@@ -1,0 +1,3 @@
+[submodule "open-abb-driver"]
+	path = open-abb-driver
+	url = git@github.com:stoneil/open-abb-driver.git
