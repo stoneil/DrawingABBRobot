@@ -12,11 +12,17 @@ from math import radians, cos, sin
 class Robot_Controller(abb.Robot):
 
     def __init__(self, radius=167, colors=('RED','BLACK','AQUA','YELLOW','MAROON','ORANGE','DARK BLUE','GREEEN'),ip='127.0.0.1'):
-        #abb.Robot.__init__(self,ip)
+        abb.Robot.__init__(self,ip)
+
         self.colors = colors
         self.tool_poses = self.generate_tool_poses(radius)
+        self.canvas_wobj_pose = [[-215.9, -1022.2, 1], [0, 1, 0, 0]]
+
+        self.set_tool(self.tool_poses['RED'])
+        self.set_workobject(self.canvas_wobj_pose)
 
 
+    # Generates the 8 tool poses automatically so that they can be switched between
     def generate_tool_poses(self, radius=167):
         poses_dict = dict()
         for i in range(0,8): # starts at the red marker and finds the poses for all the markers in an CCW direction
