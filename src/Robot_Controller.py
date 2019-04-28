@@ -11,7 +11,7 @@ from math import radians, cos, sin
 
 class Robot_Controller(abb.Robot):
 
-    def __init__(self, radius=167, colors=('RED','BLACK','CYAN','YELLOW','MAROON','ORANGE','DARK BLUE','GREEN'),ip='127.0.0.1'):
+    def __init__(self, radius=167, colors=('RED','BLACK','CYAN','YELLOW','MAGENTA','ORANGE','DARK BLUE','GREEN'),ip='127.0.0.1'):
         abb.Robot.__init__(self,ip)
 
         self.colors = colors
