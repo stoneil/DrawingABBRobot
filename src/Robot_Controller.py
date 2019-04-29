@@ -32,7 +32,7 @@ class Robot_Controller(abb.Robot):
 
 
     # Generates the 8 tool poses automatically so that they can be switched between
-    def generate_tool_poses(self, radius=167):
+    def generate_tool_poses(self, radius=169.9):
         poses_dict = dict()
         for i in range(0,8): # starts at the red marker and finds the poses for all the markers in an CCW direction
             rot_mat = euler2mat(0, radians(90), radians(22.5 + 45*i))

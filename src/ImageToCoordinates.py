@@ -11,6 +11,7 @@ def image2world(i, j):
     y = j * 3.175
     return [x, y]
 
+# take an color-masked image and draw all the points that aren't white with the robot
 def drawColor(img, color):
     count = 0
     current_count = 0
@@ -52,8 +53,7 @@ print("there")
 
 
 
-# Draw the stuffs!
-
+# Draw each color with the ABB robot!
 drawColor(images[0], 'BLACK')
 drawColor(images[1], 'YELLOW')
 drawColor(images[2], 'MAGENTA')
