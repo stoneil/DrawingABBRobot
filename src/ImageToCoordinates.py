@@ -5,10 +5,12 @@ from os import listdir
 from os.path import isfile, join
 from Robot_Controller import Robot_Controller
 
+mm_per_pixel = 3.175
+
 # conversion function (pixels -> mm)
 def image2world(i, j):
-    x = i * 3.175
-    y = j * 3.175
+    x = i * mm_per_pixel + (mm_per_pixel/2) + mm_per_pixel * 4
+    y = j * mm_per_pixel + (mm_per_pixel/2) + mm_per_pixel * 4
     return [x, y]
 
 # take an color-masked image and draw all the points that aren't white with the robot
@@ -48,7 +50,7 @@ for n in range(0, len(onlyfiles)):
     images[n] = cv2.imread(join(mypath,onlyfiles[n]))
 print("here")
 # Init Robot_Controller class
-R = Robot_Controller()
+R = Robot_Controller(ip='192.168.100.100')
 print("there")
 
 

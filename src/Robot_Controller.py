@@ -1,7 +1,7 @@
 '''
 Class to inherits the Robot class in abb.py. This initializes starting position, tool data, and manages the paths for drawing images
 
-Authors: Sean O'Neil
+Author: Sean O'Neil
 '''
 
 import abb
@@ -21,7 +21,7 @@ class Robot_Controller(abb.Robot):
         self.set_tool(self.tool_poses['RED'])
         self.set_workobject(self.canvas_wobj_pose)
         self.set_zone(zone_key='z0', point_motion=True)
-        self.set_speed([5000,500,50,50])
+        self.set_speed([100,50,50,50])
         # initial position above drawing
         self.draw_euler_orientation = [0, 0, -90]
         self.draw_height = -20
@@ -53,3 +53,6 @@ class Robot_Controller(abb.Robot):
         self.set_cartesian_euler([xy_point[0], xy_point[1], 0], self.draw_euler_orientation)
         self.set_cartesian_euler([xy_point[0], xy_point[1], self.draw_height], self.draw_euler_orientation)
 
+    def switch2tool(self, color):
+        self.set_tool(self.tool_poses[color])
+        self.set_cartesian_euler([0, 0, self.draw_height], self.draw_euler_orientation)
